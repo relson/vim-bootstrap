@@ -48,12 +48,14 @@ $ sudo zypper in ncurses-devel git ctags curl
 * jedi
 * neovim (neovim only) 
 
+* PIP
+
 ```
 $ pip install flake8 jedi
 $ pip2 install --user --upgrade neovim
 $ pip3 install --user --upgrade neovim
 ```
-#### Ubuntu\Debian
+* Ubuntu\Debian
 
 ```
 $ sudo apt-get install pyflakes python-jedi
