@@ -53,6 +53,11 @@ $ pip install flake8 jedi
 $ pip2 install --user --upgrade neovim
 $ pip3 install --user --upgrade neovim
 ```
+#### Ubuntu\Debian
+
+```
+$ sudo apt-get install pyflakes python-jedi
+```
 
 ### Elm bundle (optionally)
 
