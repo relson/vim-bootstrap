@@ -1,9 +1,10 @@
 # vim-bootstrap
 
-[![Join the chat at https://gitter.im/avelino/vim-bootstrap](https://badges.gitter.im/avelino/vim-bootstrap.svg)](https://gitter.im/avelino/vim-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Open Source Helpers](https://www.codetriage.com/avelino/vim-bootstrap/badges/users.svg)](https://www.codetriage.com/avelino/vim-bootstrap)
-
 Vim Bootstrap provides a simple method for generating .vimrc configuration files for Vim, NeoVim, NeoVim-Qt, MacVim and GVim.
+
+Want to generate your vim/neovim file? Access [here](https://vim-bootstrap.com/)!
+
+<a href="https://www.producthunt.com/posts/vim-bootstrap?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-vim-bootstrap" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=303760&theme=light" alt="vim-bootstrap - Your configuration generator for Neovim/Vim | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ## Pre-requisites
 
@@ -35,12 +36,19 @@ $ sudo pacman -S git ctags ncurses curl
 * Fedora
 
 ```
-$ sudo dnf install ncurses-devel git ctags-etags curl
+$ sudo dnf install ncurses-devel git ctags curl
 ```
 
 * openSUSE
 ```
 $ sudo zypper in ncurses-devel git ctags curl
+```
+
+### BSD
+
+* FreeBSD via *packages collection*
+```
+# pkg install git p5-Parse-ExuberantCTags ncurses curl
 ```
 
 ### Python bundle (optionally)
@@ -72,7 +80,14 @@ $ sudo apt-get install pyflakes python-jedi
 $ npm install -g elm-test
 $ npm install -g elm-oracle
 $ npm install -g elm-format@exp
+```
 
+### Rust
+
+* [rls](https://github.com/rust-lang/rls#setup)
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 ## Installation
@@ -86,7 +101,7 @@ $ npm install -g elm-format@exp
 
 * Execute ViM and it will install plugins automatically
 ```
-`vim`
+vim
 ```
 
 ### Fast-installation by URL parameters
@@ -106,11 +121,11 @@ Vim-bootstrap generator can accept URL params via request as example below.
 
 You can run vim-bootstrap Go package to generate a vimrc file, just download it:
 
-    go get github.com/avelino/vim-bootstrap
-    cd $GOPATH/src/github.com/avelino/vim-bootstrap
+    go get github.com/editor-bootstrap/vim-bootstrap
+    cd $GOPATH/src/github.com/editor-bootstrap/vim-bootstrap
     go build
 
-Inside vim-bootrap folder `cd vim-bootstrap` use `vim-bootstrap` module (file) like this example:
+Inside vim-bootstrap folder `cd vim-bootstrap` use `vim-bootstrap` module (file) like this example:
 
     ./vim-bootstrap -langs=python,lua,ruby,javascript,haskell -frameworks vuejs -editor=vim > ~/.vimrc
 
@@ -140,13 +155,27 @@ $ sudo zypper ref
 $ sudo zypper in vim-bootstrap
 ```
 
+## Adding a new Theme
 
+Create a folder inside `generate/vim_template/themes/` with the name of your theme.
+
+    mkdir generate/vim_template/themes/my_theme
+
+Inside this folder, add a file called `mytheme.vim` with colorscheme instruction (optionally other configs).
+
+    echo "colorscheme mytheme" > generate/vim_template/themes/my_theme/mytheme.vim
+
+Add a `.bundle` extension file with instructions of how to install theme.
+
+    echo "Plug username/mytheme" > generate/vim_template/themes/my_theme/mytheme.vim.bundle
+
+Submit a PR and when approved new theme was added.
 
 ## Customization
 
 It's highly recommended to add customizations in a separate file. This way, you can maintain the original vim-bootstrap generated vimrc file and subsequent updates.
 
-For Vim users, the files available for customization are `~/.vimrc.local` and `~/.vimrc.local.bundles`. The former handles general configuration while the latter handle external Vim plugins through `vim-plug`.
+For Vim users, the files available for customization are `~/.vimrc.local` and `~/.vimrc.local.bundles`. The former handles general configuration while the latter handles external Vim plugins through `vim-plug`.
 
 NeoVim users can also customize their configuration by using `$XDG_CONFIG_HOME/nvim/local_init.vim` and `$XDG_CONFIG_HOME/nvim/local_bundles.vim`.
 
@@ -168,7 +197,7 @@ Commands | Descriptions
 <kbd>shift</kbd><kbd>tab</kbd> | previous tab navigate
 <kbd>,</kbd><kbd>e</kbd> | Find and open files
 <kbd>,</kbd><kbd>b</kbd> | Find file on buffer (open file)
-<kbd>,</kbd><kbd>c</kbd> | Close active buffer (clone file)
+<kbd>,</kbd><kbd>c</kbd> | Close active buffer (close file)
 <kbd>F2</kbd>  | Open tree navigate in actual opened file
 <kbd>F3</kbd>  | Open/Close tree navigate files
 <kbd>F4</kbd> | List all class and method, support for python, go, lua, ruby and php
@@ -259,9 +288,9 @@ Visit the following sites to learn more about Vim:
 
 * [Learn Vim Progressively](https://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)
 * [Vim Adventures](https://vim-adventures.com/)
-* [Vimcasts](https://vimcasts.org)
-* [Byte of Vim](https://www.swaroopch.com/notes/Vim)
+* [Vimcasts](http://vimcasts.org)
+* [Byte of Vim](https://vim.swaroopch.com/)
 * [MinuteVim Tricks](https://www.youtube.com/user/MinuteVimTricks)
-* [Join the Church of Vim, and you too can be a saint!](https://www.avelino.xxx/2015/03/church-vim)
+* [Join the Church of Vim, and you too can be a saint!](https://www.avelino.run/church-vim)
 * [Vim para noobs (in portuguese)](https://woliveiras.com.br/vimparanoobs/)
 * [Vimbook (in portuguese)](https://cassiobotaro.gitbooks.io/vimbook/content/)
